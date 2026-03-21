@@ -119,16 +119,16 @@ export function HabitCard({
 
   return (
     <div className="relative overflow-hidden rounded-lg">
-      {/* Archive background */}
-      <div className="absolute inset-0 bg-amber-500 flex items-center justify-end px-4 rounded-lg">
-        <span className="text-white text-xs font-medium">Archive</span>
-      </div>
+      {/* Archive background — only visible when swiping */}
+      {swipeX < 0 && (
+        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 flex items-center justify-end px-4 rounded-lg">
+          <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">Archive</span>
+        </div>
+      )}
 
       {/* Card */}
       <div
-        className={`relative bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden transition-colors ${
-          done ? "opacity-80" : ""
-        }`}
+        className="relative bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden transition-colors"
         style={{
           borderLeft: `3px solid ${habit.color}`,
           transform: `translateX(${swipeX}px)`,
@@ -184,7 +184,7 @@ export function HabitCard({
               <span
                 key={counterKey}
                 className="text-sm font-semibold min-w-[2.5rem] text-center animate-bump"
-                style={{ color: done ? habit.color : undefined }}
+                style={{ color: done ? "#9ca3af" : undefined }}
               >
                 {value}
                 {habit.target ? `/${habit.target}` : ""}
