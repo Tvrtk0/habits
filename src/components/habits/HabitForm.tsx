@@ -86,9 +86,9 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center animate-fade-in">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative w-full max-w-lg bg-white dark:bg-[#262626] rounded-t-2xl max-h-[85vh] flex flex-col animate-slide-up">
+      <div className="relative w-full max-w-lg bg-white dark:bg-[#2c2c2e] rounded-t-2xl max-h-[85vh] flex flex-col animate-slide-up">
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-[#3a3a3c]">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             {habit ? "Edit Habit" : "New Habit"}
           </h2>
@@ -112,7 +112,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g. Read for 30 minutes"
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
               autoFocus
             />
           </div>
@@ -126,7 +126,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
             />
           </div>
 
@@ -143,8 +143,8 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                   onClick={() => setType(value)}
                   className={`flex-1 flex flex-col items-center gap-1 py-2.5 rounded-lg text-xs font-medium transition-colors ${
                     type === value
-                      ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-200 dark:ring-indigo-500/30"
-                      : "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                      ? "bg-indigo-50 dark:bg-white/10 text-indigo-600 dark:text-gray-100 ring-1 ring-indigo-200 dark:ring-white/20"
+                      : "bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-500"
                   }`}
                 >
                   <Icon size={18} />
@@ -166,7 +166,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                 value={target}
                 onChange={(e) => setTarget(e.target.value)}
                 placeholder={type === "counter" ? "e.g. 8" : "e.g. 30"}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+                className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
               />
             </div>
           )}
@@ -184,8 +184,8 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                   onClick={() => setFrequency(value)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                     frequency === value
-                      ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-200 dark:ring-indigo-500/30"
-                      : "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                      ? "bg-indigo-50 dark:bg-white/10 text-indigo-600 dark:text-gray-100 ring-1 ring-indigo-200 dark:ring-white/20"
+                      : "bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-500"
                   }`}
                 >
                   {label}
@@ -228,7 +228,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                       setCategory(e.target.value);
                     }
                   }}
-                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
                 >
                   <option value="">None</option>
                   {categories?.map((c) => (
@@ -246,7 +246,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
                   placeholder="Category name"
-                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+                  className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
                   autoFocus
                 />
                 <button
@@ -279,7 +279,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
                   type="button"
                   onClick={() => setColor(c)}
                   className={`w-8 h-8 rounded-full transition-transform ${
-                    color === c ? "scale-125 ring-2 ring-offset-2 ring-gray-400 dark:ring-offset-[#262626]" : ""
+                    color === c ? "scale-125 ring-2 ring-offset-2 ring-gray-400 dark:ring-offset-[#2c2c2e]" : ""
                   }`}
                   style={{ backgroundColor: c }}
                 />
@@ -296,7 +296,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
               type="time"
               value={reminderTime}
               onChange={(e) => setReminderTime(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+              className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
             />
           </div>
 

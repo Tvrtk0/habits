@@ -111,7 +111,7 @@ export function SettingsPage() {
         <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
           Appearance
         </h2>
-        <div className="bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm overflow-hidden">
           <div className="p-4">
             <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
               Theme
@@ -123,8 +123,8 @@ export function SettingsPage() {
                   onClick={() => setMode(value)}
                   className={`flex-1 flex flex-col items-center gap-1.5 py-3 rounded-lg text-xs font-medium transition-colors ${
                     mode === value
-                      ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-200 dark:ring-indigo-500/30"
-                      : "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
+                      ? "bg-indigo-50 dark:bg-white/10 text-indigo-600 dark:text-gray-100 ring-1 ring-indigo-200 dark:ring-white/20"
+                      : "bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-500"
                   }`}
                 >
                   <Icon size={18} />
@@ -141,7 +141,7 @@ export function SettingsPage() {
         <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
           Notifications
         </h2>
-        <div className="bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm overflow-hidden">
           <button
             onClick={handleToggleNotifications}
             className="w-full flex items-center justify-between px-4 py-3"
@@ -180,7 +180,7 @@ export function SettingsPage() {
           <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
             Archived ({archivedHabits.length})
           </h2>
-          <div className="bg-white dark:bg-[#262626] rounded-lg shadow-sm divide-y divide-gray-100 dark:divide-gray-800">
+          <div className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm divide-y divide-gray-100 dark:divide-[#3a3a3c]">
             {archivedHabits.map((habit) => (
               <div key={habit.id} className="flex items-center gap-3 px-4 py-3">
                 <div
@@ -219,7 +219,7 @@ export function SettingsPage() {
         <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
           Data
         </h2>
-        <div className="bg-white dark:bg-[#262626] rounded-lg shadow-sm divide-y divide-gray-100 dark:divide-gray-800">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm divide-y divide-gray-100 dark:divide-[#3a3a3c]">
           <button
             onClick={handleExport}
             className="w-full flex items-center gap-2 px-4 py-3 text-sm text-gray-900 dark:text-gray-100"
@@ -257,7 +257,7 @@ export function SettingsPage() {
                       onClick={() => setImportMode(m)}
                       className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-colors ${
                         importMode === m
-                          ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-200 dark:ring-indigo-500/30"
+                          ? "bg-indigo-50 dark:bg-white/10 text-indigo-600 dark:text-gray-100 ring-1 ring-indigo-200 dark:ring-white/20"
                           : "bg-gray-50 dark:bg-gray-800 text-gray-500"
                       }`}
                     >
@@ -315,7 +315,7 @@ export function SettingsPage() {
                   type="text"
                   value={deleteText}
                   onChange={(e) => setDeleteText(e.target.value)}
-                  className="w-full px-3 py-2 rounded-md border border-red-300 dark:border-red-700 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 text-sm focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md border border-red-300 dark:border-red-700 bg-white dark:bg-[#1c1c1e] text-gray-900 dark:text-gray-100 text-sm focus:outline-none"
                   autoFocus
                 />
                 <div className="flex gap-2">

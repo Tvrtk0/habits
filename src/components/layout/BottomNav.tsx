@@ -11,7 +11,7 @@ const tabs = [
 export function BottomNav() {
   return (
     <nav
-      className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1a1a1a]"
+      className="border-t border-gray-200 dark:border-[#3a3a3c] bg-white dark:bg-[#1e1e21]"
       style={{ paddingBottom: "var(--safe-bottom)" }}
     >
       <div className="flex justify-around items-center h-14">
@@ -23,7 +23,7 @@ export function BottomNav() {
             className={({ isActive }) =>
               `flex flex-col items-center justify-center gap-0.5 w-16 h-full text-xs transition-colors ${
                 isActive
-                  ? "text-indigo-500"
+                  ? "text-indigo-500 dark:text-gray-100"
                   : "text-gray-400 dark:text-gray-500"
               }`
             }

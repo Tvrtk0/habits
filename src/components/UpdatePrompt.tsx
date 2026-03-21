@@ -10,7 +10,7 @@ export function UpdatePrompt() {
 
   return (
     <div className="fixed top-4 left-4 right-4 z-50 max-w-lg mx-auto">
-      <div className="bg-white dark:bg-[#262626] rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between gap-3">
+      <div className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-lg border border-gray-200 dark:border-[#3a3a3c] px-4 py-3 flex items-center justify-between gap-3">
         <p className="text-sm text-gray-700 dark:text-gray-300">
           New version available
         </p>

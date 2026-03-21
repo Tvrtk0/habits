@@ -15,7 +15,7 @@ export function AppShell() {
   const title = titles[pathname] ?? "Habits";
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 dark:bg-[#1a1a1a]">
+    <div className="flex flex-col h-full bg-gray-50 dark:bg-[#232326]">
       <Header title={title} />
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-lg mx-auto px-4 py-4">

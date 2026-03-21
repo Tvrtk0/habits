@@ -121,14 +121,14 @@ export function HabitCard({
     <div className="relative overflow-hidden rounded-lg">
       {/* Archive background — only visible when swiping */}
       {swipeX < 0 && (
-        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 flex items-center justify-end px-4 rounded-lg">
+        <div className="absolute inset-0 bg-gray-200 dark:bg-[#3a3a3c] flex items-center justify-end px-4 rounded-lg">
           <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">Archive</span>
         </div>
       )}
 
       {/* Card */}
       <div
-        className="relative bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden transition-colors"
+        className="relative bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm overflow-hidden transition-colors"
         style={{
           borderLeft: `3px solid ${habit.color}`,
           transform: `translateX(${swipeX}px)`,
@@ -147,7 +147,7 @@ export function HabitCard({
               className={`w-7 h-7 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
                 done
                   ? "border-transparent text-white"
-                  : "border-gray-300 dark:border-gray-600"
+                  : "border-gray-300 dark:border-gray-500"
               }`}
               style={done ? { backgroundColor: habit.color } : undefined}
             >
@@ -177,13 +177,13 @@ export function HabitCard({
               <button
                 onClick={() => !readOnly && handleIncrement(Math.max(0, value - 1))}
                 disabled={readOnly || value <= 0}
-                className="w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm font-bold flex items-center justify-center disabled:opacity-30"
+                className="w-7 h-7 rounded-full bg-gray-100 dark:bg-[#3a3a3c] text-gray-500 dark:text-gray-300 text-sm font-bold flex items-center justify-center disabled:opacity-30"
               >
                 -
               </button>
               <span
                 key={counterKey}
-                className="text-sm font-semibold min-w-[2.5rem] text-center animate-bump"
+                className="text-sm font-semibold min-w-[2.5rem] text-center text-gray-800 dark:text-gray-200 animate-bump"
                 style={{ color: done ? "#9ca3af" : undefined }}
               >
                 {value}
@@ -208,7 +208,7 @@ export function HabitCard({
               className={`px-2.5 py-1 rounded-md text-xs font-mono font-semibold flex-shrink-0 transition-colors ${
                 timerRunning
                   ? "text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                  : "bg-gray-100 dark:bg-[#3a3a3c] text-gray-600 dark:text-gray-200"
               }`}
               style={timerRunning ? { backgroundColor: habit.color } : undefined}
             >
@@ -248,7 +248,7 @@ export function HabitCard({
           {/* Edit */}
           <button
             onClick={onEdit}
-            className="p-1 text-gray-300 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 flex-shrink-0"
+            className="p-1 text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-300 flex-shrink-0"
           >
             <Pencil size={14} />
           </button>
@@ -263,7 +263,7 @@ export function HabitCard({
               onBlur={() => onNote(noteText)}
               placeholder="Add a note..."
               rows={2}
-              className="w-full px-2 py-1.5 text-xs rounded border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300 resize-none focus:outline-none focus:ring-1 focus:ring-indigo-500/40"
+              className="w-full px-2 py-1.5 text-xs rounded border border-gray-200 dark:border-[#3a3a3c] bg-gray-50 dark:bg-[#1c1c1e] text-gray-700 dark:text-gray-300 resize-none focus:outline-none focus:ring-1 focus:ring-indigo-500/40"
             />
           </div>
         )}

@@ -124,7 +124,7 @@ export function TodayPage() {
               {Math.round((doneCount / scheduledHabits.length) * 100)}%
             </span>
           </div>
-          <div className="h-1.5 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-gray-200 dark:bg-[#3a3a3c] rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-500 rounded-full transition-all duration-300"
               style={{

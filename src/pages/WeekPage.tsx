@@ -132,7 +132,7 @@ export function WeekPage() {
                 if (!scheduled) {
                   return (
                     <div key={i} className="flex justify-center">
-                      <div className="w-6 h-6 rounded-md bg-gray-50 dark:bg-gray-900" />
+                      <div className="w-6 h-6 rounded-md bg-gray-50 dark:bg-[#2c2c2e]" />
                     </div>
                   );
                 }
@@ -175,7 +175,7 @@ export function WeekPage() {
                             <path d="M3 7l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         ) : (
-                          <div className="w-6 h-6 rounded-md border border-gray-200 dark:border-gray-700" />
+                          <div className="w-6 h-6 rounded-md border border-gray-200 dark:border-[#3a3a3c]" />
                         )
                       ) : (
                         <span className={opacity === 0 ? "text-gray-300 dark:text-gray-600" : ""}>

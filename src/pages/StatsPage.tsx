@@ -152,7 +152,7 @@ export function StatsPage() {
             onClick={() => setRange(value)}
             className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-colors ${
               range === value
-                ? "bg-white dark:bg-[#262626] text-gray-900 dark:text-gray-100 shadow-sm"
+                ? "bg-white dark:bg-[#2c2c2e] text-gray-900 dark:text-gray-100 shadow-sm"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >
@@ -163,14 +163,14 @@ export function StatsPage() {
 
       {/* Overall stats */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="bg-white dark:bg-[#262626] rounded-lg p-3 shadow-sm text-center">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg p-3 shadow-sm text-center">
           <TrendingUp size={18} className="mx-auto mb-1 text-indigo-500" />
           <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
             {overallStats.total}
           </p>
           <p className="text-[10px] text-gray-500 dark:text-gray-400">Habits</p>
         </div>
-        <div className="bg-white dark:bg-[#262626] rounded-lg p-3 shadow-sm text-center">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg p-3 shadow-sm text-center">
           <CheckCircle2 size={18} className="mx-auto mb-1 text-green-500" />
           <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
             {overallStats.rate}%
@@ -179,7 +179,7 @@ export function StatsPage() {
             Completion
           </p>
         </div>
-        <div className="bg-white dark:bg-[#262626] rounded-lg p-3 shadow-sm text-center">
+        <div className="bg-white dark:bg-[#2c2c2e] rounded-lg p-3 shadow-sm text-center">
           <Flame size={18} className="mx-auto mb-1 text-orange-500" />
           <p className="text-lg font-bold text-gray-900 dark:text-gray-100">
             {overallStats.completions}
@@ -189,7 +189,7 @@ export function StatsPage() {
       </div>
 
       {/* Trend chart */}
-      <div className="bg-white dark:bg-[#262626] rounded-lg p-4 shadow-sm">
+      <div className="bg-white dark:bg-[#2c2c2e] rounded-lg p-4 shadow-sm">
         <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
           Daily Completion Rate
         </h3>
@@ -241,7 +241,7 @@ export function StatsPage() {
             return (
               <div
                 key={habit.id}
-                className="bg-white dark:bg-[#262626] rounded-lg shadow-sm overflow-hidden"
+                className="bg-white dark:bg-[#2c2c2e] rounded-lg shadow-sm overflow-hidden"
               >
                 <button
                   onClick={() =>
