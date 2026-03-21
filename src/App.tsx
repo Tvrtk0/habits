@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { AppShell } from "./components/layout/AppShell";
 import { TodayPage } from "./pages/TodayPage";
 import { WeekPage } from "./pages/WeekPage";
@@ -14,7 +14,7 @@ export default function App() {
   useNotifications(notificationsEnabled);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <UpdatePrompt />
       <Routes>
         <Route element={<AppShell />}>
@@ -25,6 +25,6 @@ export default function App() {
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
