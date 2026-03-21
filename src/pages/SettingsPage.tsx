@@ -1,7 +1,10 @@
 import { useState, useRef } from "react";
-import { ArrowLeft, Moon, Sun, Monitor, Download, Upload, Trash2, Bell, BellOff } from "lucide-react";
+import { ArrowLeft, Moon, Sun, Monitor, Download, Upload, Trash2, Bell, BellOff, ArchiveRestore } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "../db";
 import { useTheme } from "../hooks/useTheme";
+import { useHabits } from "../hooks/useHabits";
 import { requestPermission } from "../hooks/useNotifications";
 import { exportData, importData, clearAllData } from "../utils/export";
 import type { ThemeMode } from "../models/types";
@@ -15,7 +18,13 @@ const themeOptions: { value: ThemeMode; icon: typeof Sun; label: string }[] = [
 export function SettingsPage() {
   const navigate = useNavigate();
   const { mode, setMode } = useTheme();
+  const { updateHabit, deleteHabit } = useHabits();
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const archivedHabits = useLiveQuery(async () => {
+    const all = await db.habits.toArray();
+    return all.filter((h) => h.archived);
+  });
 
   const [importMode, setImportMode] = useState<"merge" | "replace" | null>(null);
   const [importFile, setImportFile] = useState<File | null>(null);
@@ -164,6 +173,46 @@ export function SettingsPage() {
           </p>
         </div>
       </section>
+
+      {/* Archived Habits */}
+      {archivedHabits && archivedHabits.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+            Archived ({archivedHabits.length})
+          </h2>
+          <div className="bg-white dark:bg-[#262626] rounded-lg shadow-sm divide-y divide-gray-100 dark:divide-gray-800">
+            {archivedHabits.map((habit) => (
+              <div key={habit.id} className="flex items-center gap-3 px-4 py-3">
+                <div
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: habit.color }}
+                />
+                <span className="flex-1 text-sm text-gray-500 dark:text-gray-400 truncate">
+                  {habit.name}
+                </span>
+                <button
+                  onClick={() => updateHabit(habit.id, { archived: false })}
+                  className="p-1.5 text-indigo-500 hover:text-indigo-600"
+                  title="Restore"
+                >
+                  <ArchiveRestore size={16} />
+                </button>
+                <button
+                  onClick={() => {
+                    if (confirm(`Delete "${habit.name}" permanently?`)) {
+                      deleteHabit(habit.id);
+                    }
+                  }}
+                  className="p-1.5 text-gray-400 hover:text-red-500"
+                  title="Delete"
+                >
+                  <Trash2 size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Data */}
       <section className="mb-8">
