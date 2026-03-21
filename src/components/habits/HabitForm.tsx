@@ -84,9 +84,9 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
+    <div className="fixed inset-0 z-50 flex items-end justify-center animate-fade-in">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative w-full max-w-lg bg-white dark:bg-[#262626] rounded-t-2xl max-h-[85vh] flex flex-col">
+      <div className="relative w-full max-w-lg bg-white dark:bg-[#262626] rounded-t-2xl max-h-[85vh] flex flex-col animate-slide-up">
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">

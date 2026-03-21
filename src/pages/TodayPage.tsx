@@ -137,9 +137,30 @@ export function TodayPage() {
 
       {/* Habit list */}
       {scheduledHabits.length === 0 ? (
-        <div className="text-center text-gray-400 dark:text-gray-600 py-16">
-          <p className="text-lg">No habits yet</p>
-          <p className="text-sm mt-1">Tap + to create your first habit</p>
+        <div className="text-center py-16">
+          {!habits || habits.length === 0 ? (
+            <>
+              <div className="text-4xl mb-3">
+                <svg width="48" height="48" viewBox="0 0 100 100" className="mx-auto opacity-30">
+                  <rect width="100" height="100" rx="20" fill="#6366f1"/>
+                  <path d="M28 52l14 14 30-32" stroke="white" strokeWidth="10" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <p className="text-lg font-medium text-gray-500 dark:text-gray-400">Welcome to Habit Tracker</p>
+              <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">Build better habits, one day at a time</p>
+              <button
+                onClick={() => { setEditingHabit(undefined); setShowForm(true); }}
+                className="mt-4 px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-lg"
+              >
+                Create your first habit
+              </button>
+            </>
+          ) : (
+            <>
+              <p className="text-lg text-gray-400 dark:text-gray-500">No habits scheduled</p>
+              <p className="text-sm text-gray-400 dark:text-gray-600 mt-1">Nothing due on this day</p>
+            </>
+          )}
         </div>
       ) : (
         <div className="space-y-4">
@@ -170,6 +191,7 @@ export function TodayPage() {
                       setEditingHabit(habit);
                       setShowForm(true);
                     }}
+                    onArchive={() => archiveHabit(habit.id)}
                   />
                 ))}
               </div>
