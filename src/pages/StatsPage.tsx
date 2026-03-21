@@ -214,7 +214,7 @@ export function StatsPage() {
                 border: "none",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
               }}
-              formatter={(value: number) => [`${value}%`, "Rate"]}
+              formatter={(value) => [`${value}%`, "Rate"]}
             />
             <Line
               type="monotone"
