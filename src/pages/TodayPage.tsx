@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { useLiveQuery } from "dexie-react-hooks";
 import { useHabits } from "../hooks/useHabits";
 import { useCompletions } from "../hooks/useCompletions";
@@ -12,7 +13,9 @@ import { db } from "../db";
 import type { Habit } from "../models/types";
 
 export function TodayPage() {
-  const [selectedDate, setSelectedDate] = useState(today);
+  const [searchParams] = useSearchParams();
+  const initialDate = searchParams.get("date") ?? today();
+  const [selectedDate, setSelectedDate] = useState(initialDate);
   const [showForm, setShowForm] = useState(false);
   const [editingHabit, setEditingHabit] = useState<Habit | undefined>();
 
@@ -102,6 +105,13 @@ export function TodayPage() {
           <ChevronRight size={20} className={isToday ? "opacity-30" : ""} />
         </button>
       </div>
+
+      {/* Read-only label */}
+      {isReadOnly && (
+        <p className="text-xs text-center text-amber-500 dark:text-amber-400 mb-3">
+          Editing locked — more than 7 days ago
+        </p>
+      )}
 
       {/* Progress bar */}
       {scheduledHabits.length > 0 && (
