@@ -95,7 +95,7 @@ export function WeekPage() {
       </div>
 
       {/* Header row */}
-      <div className="grid grid-cols-[1fr_repeat(7,2.5rem)] gap-1 mb-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_repeat(7,2.5rem)] gap-1 mb-2 justify-center">
         <div />
         {days.map((d, i) => (
           <div
@@ -122,7 +122,7 @@ export function WeekPage() {
           {habits.map((habit) => (
             <div
               key={habit.id}
-              className="grid grid-cols-[1fr_repeat(7,2.5rem)] gap-1 items-center"
+              className="grid grid-cols-[minmax(0,1fr)_repeat(7,2.5rem)] gap-1 items-center justify-center"
             >
               <p className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate pr-1">
                 {habit.name}

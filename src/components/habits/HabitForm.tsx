@@ -37,7 +37,17 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${window.scrollY}px`;
+    const scrollY = window.scrollY;
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      window.scrollTo(0, scrollY);
+    };
   }, []);
 
   function handleSubmit(e: React.FormEvent) {
@@ -84,9 +94,9 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center animate-fade-in">
-      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative w-full max-w-lg bg-white dark:bg-[#2c2c2e] rounded-t-2xl max-h-[85vh] flex flex-col animate-slide-up">
+    <div className="fixed inset-0 z-50 flex items-end justify-center animate-fade-in" style={{ height: "100dvh" }}>
+      <div className="absolute inset-0 bg-black/40" onClick={onClose} onTouchMove={(e) => e.preventDefault()} />
+      <div className="relative w-full max-w-lg bg-white dark:bg-[#2c2c2e] rounded-t-2xl flex flex-col animate-slide-up" style={{ maxHeight: "85dvh" }}>
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-[#3a3a3c]">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
@@ -101,7 +111,7 @@ export function HabitForm({ habit, onSave, onDelete, onArchive, onClose }: Habit
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-5">
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-4 space-y-5" style={{ overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}>
           {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

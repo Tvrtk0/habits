@@ -145,12 +145,12 @@ export function StatsPage() {
   return (
     <div className="pb-4 space-y-6">
       {/* Range toggle */}
-      <div className="flex gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+      <div className="flex gap-1 bg-gray-100 dark:bg-[#1c1c1e] rounded-lg p-1">
         {rangeOptions.map(({ value, label }) => (
           <button
             key={value}
             onClick={() => setRange(value)}
-            className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-colors ${
+            className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-colors outline-none ${
               range === value
                 ? "bg-white dark:bg-[#2c2c2e] text-gray-900 dark:text-gray-100 shadow-sm"
                 : "text-gray-500 dark:text-gray-400"

@@ -7,8 +7,10 @@ import { StatsPage } from "./pages/StatsPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { UpdatePrompt } from "./components/UpdatePrompt";
 import { useNotifications } from "./hooks/useNotifications";
+import { useTheme } from "./hooks/useTheme";
 
 export default function App() {
+  useTheme();
   const notificationsEnabled =
     localStorage.getItem("habit-notifications") === "true";
   useNotifications(notificationsEnabled);
